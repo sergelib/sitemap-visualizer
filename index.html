@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap Tree Visualization</title>
+    <link rel="stylesheet" href="resources/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <h1>Sitemap Visualizer</h1>
+            <div id="selection-bar" style="display:none;">
+                <span id="current-path">Selection: </span>
+                <button id="set-root-btn">Set as Root</button>
+            </div>
+        </div>
+        <div class="controls">
+            <select id="view-selector">
+                <option value="tree">Collapsible Tree</option>
+                <option value="sunburst">Sunburst</option>
+            </select>
+            <button id="reset-btn">Reset View</button>
+            <span id="node-count">Total nodes: 0</span>
+        </div>
+    </header>
+    <main id="chart-container">
+        <!-- D3 Graph will be rendered here -->
+    </main>
+
+    <footer>
+        Built with D3.js
+    </footer>
+    <script src="resources/generated/sitemap.js"></script>
+    <script src="resources/d3_tree.js"></script>
+    <script src="resources/d3_sunburst.js"></script>
+    <script src="resources/visualize.js"></script>
+    <script>
+        // Set initial view
+        document.addEventListener('DOMContentLoaded', () => {
+            // Visualize is triggered by script inclusion but we can default here if needed
+            // currently visualize.js handles logic
+        });
+    </script>
+</body>
+
+</html>

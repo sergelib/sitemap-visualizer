@@ -1,0 +1,153 @@
+:root {
+    --bg-color: #0f172a;
+    --header-bg: rgba(30, 41, 59, 0.7);
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --accent: #38bdf8;
+    --node-default: #64748b;
+    --node-collapsed: #38bdf8;
+    --link-stroke: #334155;
+    --link-stroke-active: #38bdf8;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header */
+header {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+header h1 {
+    font-size: 1.2rem;
+    margin: 0;
+    white-space: nowrap;
+}
+
+header p {
+    display: none;
+    /* Hide subtitle to save space */
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.controls select {
+    background: #1e293b;
+    color: #e2e8f0;
+    border: 1px solid #38bdf8;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#selection-bar {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    /* Removed ugly borders and backgrounds */
+}
+
+#current-path {
+    font-family: monospace;
+    color: #94a3b8;
+}
+
+/* Shared Button Styles */
+button {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    background: #38bdf8;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+    color: #0f172a;
+    /* Ensure text is readable on blue */
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+#node-count {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+main {
+    flex: 1;
+    position: relative;
+    cursor: grab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Prevent scrollbars triggering */
+}
+
+main:active {
+    cursor: grabbing;
+}
+
+footer {
+    padding: 0.5rem 2rem;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: right;
+}
+
+/* D3 Elements */
+.node circle {
+    stroke: var(--accent);
+    stroke-width: 1.5px;
+    transition: fill 0.2s, stroke 0.2s;
+}
+
+.node text {
+    font-size: 12px;
+    fill: var(--text-primary);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.link {
+    fill: none;
+    stroke: var(--link-stroke);
+    stroke-width: 1.5px;
+    transition: stroke 0.3s;
+}
+
+.node:hover circle {
+    stroke-width: 3px;
+    filter: drop-shadow(0 0 5px var(--accent));
+}
+
+.node:hover text {
+    font-weight: 600;
+    fill: #fff;
+}
